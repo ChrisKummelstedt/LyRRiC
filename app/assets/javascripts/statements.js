@@ -6,8 +6,8 @@ lyrric.factory("Statement", function($resource) {
     update: { method: 'PUT', responseType: 'json' }
   });
   return $resource("statements/new", {
-    index:  { method: 'GET', isArray: true, responseType: 'html' },
-    update: { method: 'PUT', responseType: 'html' }
+    index:  { method: 'GET', isArray: true, responseType: 'json' },
+    update: { method: 'PUT', responseType: 'json' }
   });
 });
 

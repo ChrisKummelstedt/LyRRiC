@@ -1,0 +1,11 @@
+<html lang="en" ng-app="lyrric">
+<p><%= @statement.user_id %></p>
+<p><%= @statement.title %></p>
+
+<ul id='votes'>
+<% @statement.votes.each do |vote| %>
+    <li>
+      Vote: <%= vote.verdict %>
+    </li>
+    <% end %>
+</ul>

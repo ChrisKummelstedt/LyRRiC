@@ -13,6 +13,14 @@ respond_to :json
     render :formats => [:html]
   end
 
+  def show
+    # respond_to do |format|
+    #   format.html { render :formats => [:html] }
+    #   format.json { render json: Statement.find(params[:id]) }
+    # end
+    @statement = Statement.find(params[:id])
+  end
+
   def create
     statement = Statement.new(statement_params)
     if statement.save
@@ -26,7 +34,7 @@ respond_to :json
   private
 
   def statement_params
-    params.require(:statement).permit(:title, :all_tags)
+    params.require(:statement).permit(:title, :all_tags, :id)
   end
 
 end
