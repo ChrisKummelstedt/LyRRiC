@@ -2,10 +2,7 @@ class StatementsController < ApplicationController
 respond_to :json
 
   def index
-    respond_to do |format|
-      format.html { render :formats => [:html] }
-      format.json { render json: Statement.all }
-    end
+    render json: Statement.all
   end
 
   def new
@@ -14,11 +11,7 @@ respond_to :json
   end
 
   def show
-    # respond_to do |format|
-    #   format.html { render :formats => [:html] }
-    #   format.json { render json: Statement.find(params[:id]) }
-    # end
-    @statement = Statement.find(params[:id])
+    render json: Statement.find(params[:id])
   end
 
   def create

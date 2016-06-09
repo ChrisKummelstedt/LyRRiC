@@ -1,11 +1,22 @@
-<html lang="en" ng-app="lyrric">
-<p><%= @statement.user_id %></p>
-<p><%= @statement.title %></p>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+<div class="container" ng-app="lyrric">
+  <h1>Fact or Fiction?</h1>
 
-<ul id='votes'>
-<% @statement.votes.each do |vote| %>
-    <li>
-      Vote: <%= vote.verdict %>
-    </li>
-    <% end %>
-</ul>
+  <div ng-controller="statementsController">
+    <ul ng-repeat="statement in statements">
+          <li>{{ statement.title }}</li>
+          <li>{{ statement.user_id }}</li>
+          <li>{{ statement.votes }}</li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+<div ng-controller="statementsController2">
+{{ username }}
+
+</div>
+<ng-view></ng-view>
