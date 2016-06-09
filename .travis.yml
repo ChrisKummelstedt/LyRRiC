@@ -1,9 +1,6 @@
-rvm: '2.2.3'
-script: bundle exec rspec spec
-script:
-  - bundle exec bin/rake db:create
-  - bundle exec bin/rake db:migrate
-  - bundle exec rspec spec
+language: ruby
+rvm:
+  - '2.3.0'
 language: node_js
 node_js:
   - "6.2.1"
@@ -21,3 +18,8 @@ before_script:
   - 'npm install grunt-protractor-runner'
   - 'npm install grunt-express-server'
   - 'bower install'
+script: bundle exec rspec spec
+script:
+  - bundle exec bin/rake db:create
+  - bundle exec bin/rake db:migrate
+  - bundle exec rspec spec
