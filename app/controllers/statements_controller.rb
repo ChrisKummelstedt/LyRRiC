@@ -1,6 +1,11 @@
 class StatementsController < ApplicationController
+respond_to :json, :html
+
   def index
-    @statements = Statement.all
+    respond_to do |format|
+      format.json {render json: Statement.all }
+      format.html
+    end
   end
 
   def new

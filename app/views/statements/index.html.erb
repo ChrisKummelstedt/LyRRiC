@@ -1,21 +1,11 @@
-<% if @statements.any? %>
-  <% @statements.each do |statement| %>
-    <h2> <%= statement.title %> </h2>
-    <h4> <%= statement.all_tags %> </h4>
-  <% end %>
-<% else %>
-  No statements yet
-<% end %>
+<html lang="en" ng-app="lyrric">
 
+<div class="container" ng-app="lyrric">
+  <h1>Fact or Fiction?</h1>
 
-  Verdict:
-  <button name="vote" type="submit" value="TRUE">Fact</button>
-  <button name="vote" type="submit" value="FALSE">Fiction</button>
-
-
-100% Fact
-
-100% Fiction
-
-
-1 vote
+  <div ng-controller="statementsController">
+    <ul ng-repeat="statement in statements">
+          <li>{{ statement.title }}</li>
+    </ul>
+  </div>
+</div>
