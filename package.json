@@ -6,7 +6,6 @@
   "scripts": {
     "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS",
     "start": "cd app/views/statements && ../../../node_modules/http-server/bin/http-server",
-    "start": "node ./bin/www",
     "test": "grunt travis",
     "webdriver-manager": "./node_modules/protractor/bin/webdriver-manager",
     "protractor": "./node_modules/protractor/bin/protractor"

@@ -9,7 +9,6 @@ node_js:
   - "6.2.1"
 before_script:
   - 'bundle install'
-  - "gem install mime-types-data -v '3.2016.0521'"
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
   - 'node_modules/protractor/bin/webdriver-manager update --standalone --firefox'
