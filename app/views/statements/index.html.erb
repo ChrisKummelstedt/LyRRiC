@@ -1,5 +1,5 @@
-<html lang="en" ng-app="lyrric">
-
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
 <div class="container" ng-app="lyrric">
   <h1>Fact or Fiction?</h1>
 
@@ -7,6 +7,9 @@
     <ul ng-repeat="statement in statements">
           <li>{{ statement.title }}</li>
           <li>{{ statement.user_id }}</li>
+          <li>{{ statement.votes }}</li>
     </ul>
   </div>
 </div>
+
+<ng-view></ng-view>
