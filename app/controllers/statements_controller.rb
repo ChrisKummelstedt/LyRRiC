@@ -6,7 +6,7 @@ respond_to :json
   end
 
   def new
-    @statement = Statement.new
+    render json: Statement.new
   end
 
   def show
