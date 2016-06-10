@@ -1,4 +1,4 @@
-var lyrric = angular.module('lyrric',['ngResource', 'ngRoute']);
+var lyrric = angular.module('lyrric',['ngResource', 'ngRoute', 'ngTouch']);
 
 lyrric.factory("Statement", function($resource) {
   return $resource("/statements/:id", { id: '@id' }, {
@@ -54,7 +54,39 @@ lyrric.config(function ($routeProvider) {
   })
 
   lyrric.controller("mainController", function($scope){
-    $scope.message = 'Home'
+    var stopActions = function ($event) {
+        if ($event.stopPropagation) {
+            $event.stopPropagation();
+        }
+        if ($event.preventDefault) {
+            $event.preventDefault();
+        }
+        $event.cancelBubble = true;
+        $event.returnValue = false;
+    };
+
+    // Carousel thing
+    $scope.index = 0;
+    // Hide menu
+    $scope.showMenu = false;
+    // Links
+    $scope.navigation = [{
+        title: "Satements",
+        href: "#/statements"
+    }, {
+        title: "Votes",
+        href: "#/votes"
+    }];
+    // Increment carousel thing
+    $scope.next = function ($event) {
+        stopActions($event);
+        $scope.index++;
+    };
+    // Decrement carousel thing
+    $scope.prev = function ($event) {
+        stopActions($event);
+        $scope.index--;
+    };
   })
 
   lyrric.controller("voteController", function($scope, Votes){

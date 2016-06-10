@@ -1,19 +1,12 @@
-<p>
-<header>
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="/">Home Page</a>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#/statements"><i class="fa fa-shield"></i> Statements</a></li>
-        <li><a href="#/votes"><i class="vote"></i> Votes</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-<body ng-controller="mainController">
+  <div id="page" ng-cloak ng-app='lyrric' ng-controller="mainController" ng-swipe-left="showMenu = true">
+       <h1>Home Page</h1>
 
-  <div id="main">
-
+      <div class="menu-grip box" ng-show="!showMenu" ng-click="showMenu = true">.<br />.<br />.</div>
+      <nav class="menu box" ng-show="showMenu" ng-swipe-right="showMenu = false">
+          <ul>
+              <li class="menu_item" ng-repeat='nav in navigation'><a class="menu_link" ng-href="{{nav.href}}">{{nav.title}}</a>
+              </li>
+          </ul>
+      </nav>
+      <div class="big-swiper box" ng-swipe-right="next($event)" ng-swipe-left="prev($event)">{{index}}</div>
   </div>
