@@ -2,7 +2,7 @@ class StatementsController < ApplicationController
 respond_to :json
 
   def index
-    render json: Statement.all
+    render json: Statement.where(user_id: current_user)
   end
 
   def new

@@ -1,14 +1,12 @@
 class VotesController < ApplicationController
 
   before_action :authenticate_user!
-  # respond_to :json
 
   def index
-    @votes = Vote.find(params[:statement_id])
+    render json: Vote.where(statement_id: params[:statement_id])
   end
 
   def new
-    @statement = Statement.find(params[:statement_id])
     @vote = Vote.new
   end
 
@@ -20,7 +18,7 @@ class VotesController < ApplicationController
   end
 
   def vote_params
-    params.require(:vote).permit(:verdict)
+    params.require(:vote).permit(:verdict, :statement_id)
   end
 
 end
