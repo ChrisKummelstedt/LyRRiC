@@ -9,13 +9,13 @@ language: node_js
 node_js:
   - 6.2
 before_script:
-  - bundle install
   - npm install
   - npm install -g bower
   - npm install -g gulp
   - npm install phantomjs
   - npm install -g karma
   - bower install
+  - bundle install
   - gulp build
   - gulp style
   - export DISPLAY=:99.0
