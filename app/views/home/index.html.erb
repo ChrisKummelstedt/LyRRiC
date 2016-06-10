@@ -1,15 +1,18 @@
-<div class="container" ng-app="lyrric">
-  <h1>Fact or Fiction?</h1>
+<p>
+<header>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">Home Page</a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#/statements"><i class="fa fa-shield"></i> Statements</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+<body ng-controller="mainController">
 
-  <div ng-controller="statementsController">
-    <ul ng-repeat="statement in statements">
-          <li>{{ statement.title }}</li>
-          <li>{{ statement.user_id }}</li>
-          <li>{{ statement.votes }}</li>
-    </ul>
+  <div id="main">
+
   </div>
-</div>
-
-
-</div>
-<ng-view></ng-view>

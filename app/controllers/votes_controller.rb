@@ -1,13 +1,10 @@
 class VotesController < ApplicationController
 
   before_action :authenticate_user!
-  respond_to :json
+  # respond_to :json
 
   def index
-    respond_to do |format|
-      format.html { render :formats => [:html] }
-      format.json { render json: Statement.votes }
-    end
+    @votes = Vote.find(params[:statement_id])
   end
 
   def new

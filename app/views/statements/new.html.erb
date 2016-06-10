@@ -1,8 +1,7 @@
-<html lang="en" ng-app="lyrric">
 
   <h1>Fact or Fiction?</h1>
 
-  <div ng-controller="statementsController">
+  <div ng-controller="statementController">
     {{username}}
     <h1> inside the loop <h1>
   </div>
@@ -14,10 +13,3 @@
   <%= f.text_field :all_tags, placeholder: "Tags separated with comma" %>
   <%= f.submit %>
 <% end %>
-
-
-<!--
-<label>Name:</label>
-     <input type="text" ng-model="yourName" placeholder="Enter a name here">
-     <hr>
-     <h1>Hello {{yourName}}!</h1> -->

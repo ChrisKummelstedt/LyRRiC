@@ -7,7 +7,6 @@ respond_to :json
 
   def new
     @statement = Statement.new
-    render :formats => [:html]
   end
 
   def show
