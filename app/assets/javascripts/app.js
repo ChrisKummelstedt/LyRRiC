@@ -10,8 +10,15 @@ lyrric.factory("Statement", function($resource) {
 lyrric.factory("Statements", function($resource) {
   return $resource("/statements", { }, {
     index:  { method: 'GET', isArray: true },
+    mine:   { method: "GET", isArray: true }
   });
 });
+
+// lyrric.factory("myStatements", function($resource) {
+//   return $resource("/statements", { }, {
+//     index:  { method: 'GET', isArray: true },
+//   });
+// });
 
 lyrric.config(function ($routeProvider) {
   $routeProvider
@@ -23,6 +30,10 @@ lyrric.config(function ($routeProvider) {
       templateUrl: '/templates/statements/show.html',
       controller: 'statementController'
     })
+    .when('/mine', {
+      templateUrl: '/templates/statements/mine.html',
+      controller: 'myStatementsController'
+    })
     .otherwise({
       redirectTo: '/'
     });
@@ -30,6 +41,11 @@ lyrric.config(function ($routeProvider) {
 
   lyrric.controller("statementsController", function($scope, Statements){
     $scope.statements = Statements.index()
+  })
+
+
+  lyrric.controller("myStatementsController", function($scope, Statements){
+    $scope.myStatements = Statements.mine()
   })
 
   lyrric.controller("statementController", function($scope, Statement){

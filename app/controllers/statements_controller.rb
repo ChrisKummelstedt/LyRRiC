@@ -13,6 +13,10 @@ respond_to :json
     render json: Statement.find(params[:id])
   end
 
+  def mine
+    render json: Statement.find(params[:id])
+  end
+
   def create
     statement = Statement.new(statement_params)
     if statement.save
