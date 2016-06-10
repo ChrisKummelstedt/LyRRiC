@@ -13,6 +13,12 @@ lyrric.factory("Statements", function($resource) {
   });
 });
 
+lyrric.factory("Votes", function($resource) {
+  return $resource("/statements/1/votes", { }, {
+    vindex:  { method: 'GET', isArray: true },
+  });
+});
+
 lyrric.config(function ($routeProvider) {
   $routeProvider
     .when('/statements', {
@@ -23,9 +29,13 @@ lyrric.config(function ($routeProvider) {
       templateUrl: '/templates/statements/show.html',
       controller: 'statementController'
     })
+    .when('/votes', {
+      templateUrl: '/templates/votes/index.html',
+      controller: 'voteController'
+    })
     .otherwise({
       redirectTo: '/'
-    });
+    })
   });
 
   lyrric.controller("statementsController", function($scope, Statements){
@@ -47,12 +57,7 @@ lyrric.config(function ($routeProvider) {
     $scope.message = 'Home'
   })
 
-  lyrric.controller("voteController", function($scope){
-    $scope.init = function(id, user_id, verdict)
-    {
-      $scope.item = {id: id,
-                   user_id: user_id,
-                   verdict: verdict
-                  }
-    }
+  lyrric.controller("voteController", function($scope, Votes){
+    $scope.votes = Votes.vindex()
+
   })
